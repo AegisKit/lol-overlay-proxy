@@ -19,7 +19,7 @@ app.get("/", (req, res) => {
 
 // プロキシルート
 app.get("/asia/*", async (req, res) => {
-  const apiUrl = req.url.replace("/asia", ""); // '/api'を削除して外部APIのURLを作成
+  const apiUrl = req.url.replace("/asia", "");
   try {
     const response = await axios.get(`https://asia.api.riotgames.com${apiUrl}`);
     res.json(response.data);
@@ -29,7 +29,7 @@ app.get("/asia/*", async (req, res) => {
 });
 
 app.get("/jp1/*", async (req, res) => {
-  const apiUrl = req.url.replace("/jp1", ""); // '/api'を削除して外部APIのURLを作成
+  const apiUrl = req.url.replace("/jp1", "");
   try {
     const response = await axios.get(`https://jp1.api.riotgames.com${apiUrl}`);
     res.json(response.data);
@@ -39,8 +39,7 @@ app.get("/jp1/*", async (req, res) => {
 });
 
 app.get("/opgg/*", async (req, res) => {
-  const apiUrl = req.url.replace("/opgg", ""); // '/api'を削除して外部APIのURLを作成
-  console.log(apiUrl);
+  const apiUrl = req.url.replace("/opgg", "");
   try {
     const response = await axios.get(`https://www.op.gg${apiUrl}`);
     res.json(response.data);
