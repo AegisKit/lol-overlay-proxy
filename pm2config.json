@@ -1,0 +1,6 @@
+{
+  "name": "lol-overlay-proxy",
+  "script": "node server.js",
+  "exec_mode": "fork",
+  "log-date-format": "YYYY-MM-DD HH:mm Z"
+}
