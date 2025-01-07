@@ -40,6 +40,7 @@ app.get("/jp1/*", async (req, res) => {
 
 app.get("/opgg/*", async (req, res) => {
   const apiUrl = req.url.replace("/opgg", ""); // '/api'を削除して外部APIのURLを作成
+  console.log(apiUrl);
   try {
     const response = await axios.get(`https://www.op.gg${apiUrl}`);
     res.json(response.data);
