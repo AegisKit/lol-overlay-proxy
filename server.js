@@ -13,6 +13,10 @@ app.use((req, res, next) => {
   next();
 });
 
+app.get("/", (req, res) => {
+  res.send("Hello World");
+});
+
 // プロキシルート
 app.get("/asia/*", async (req, res) => {
   const apiUrl = req.url.replace("/asia", ""); // '/api'を削除して外部APIのURLを作成
