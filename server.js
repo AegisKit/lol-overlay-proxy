@@ -24,7 +24,11 @@ app.get("/asia/*", async (req, res) => {
     const response = await axios.get(`https://asia.api.riotgames.com${apiUrl}`);
     res.json(response.data);
   } catch (error) {
-    res.status(500).json({ error: "Error fetching data from external API" });
+    console.error("Error fetching data from external API:", error.message);
+    res.status(500).json({
+      error: "Error fetching data from external API",
+      details: error.message,
+    });
   }
 });
 
@@ -34,7 +38,11 @@ app.get("/jp1/*", async (req, res) => {
     const response = await axios.get(`https://jp1.api.riotgames.com${apiUrl}`);
     res.json(response.data);
   } catch (error) {
-    res.status(500).json({ error: "Error fetching data from external API" });
+    console.error("Error fetching data from external API:", error.message);
+    res.status(500).json({
+      error: "Error fetching data from external API",
+      details: error.message,
+    });
   }
 });
 
@@ -44,7 +52,11 @@ app.get("/opgg/*", async (req, res) => {
     const response = await axios.get(`https://www.op.gg${apiUrl}`);
     res.json(response.data);
   } catch (error) {
-    res.status(500).json({ error: "Error fetching data from external API" });
+    console.error("Error fetching data from external API:", error.message);
+    res.status(500).json({
+      error: "Error fetching data from external API",
+      details: error.message,
+    });
   }
 });
 
