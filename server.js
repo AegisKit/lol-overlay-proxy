@@ -60,6 +60,20 @@ app.get("/opgg/*", async (req, res) => {
   }
 });
 
+app.get("/opgg-web/*", async (req, res) => {
+  const apiUrl = req.url.replace("/opgg-web", "");
+  try {
+    const response = await axios.get(`https://www.op.gg${apiUrl}`);
+    res.json(response.data);
+  } catch (error) {
+    console.error("Error fetching data from external API:", error.message);
+    res.status(500).json({
+      error: "Error fetching data from external API",
+      details: error.message,
+    });
+  }
+});
+
 app.listen(PORT, () => {
   console.log(`Proxy server running on port ${PORT}`);
 });
